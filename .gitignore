@@ -1,0 +1,11 @@
+# ignore
+*.sqlite*
+node_modules
+.vscode
+public
+<<<<<<< HEAD
+config.json
+=======
+config.json
+
+>>>>>>> origin/master
