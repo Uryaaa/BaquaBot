@@ -34,7 +34,7 @@ Baqua has a lot fun and useful command and keep increasing!
 
 ## Bot Setup 🔧
 
-* **Clone the Repo** by typing ``git clone https://github.com/Uryaaa/TamaLINE`` or Download the .rar file by clicking **[Here](https://github.com/Uryaaa/TamaLINE/archive/main.zip)**
+* **Clone the Repo** by typing ``git clone https://github.com/Uryaaa/TamaLINE`` or Download the .rar file by clicking **[Here](https://github.com/Uryaaa/Baquarchieve/archive/main.zip)**
 
 * Rename **[example.env]** to **[.env]** and fill with your respective information.
 
