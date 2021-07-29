@@ -9,12 +9,13 @@ module.exports = {
     async  execute(client, message, args){
       const params = new URLSearchParams()
 let [text0, text1, text2] = args.join(' ').split("|")
-if(!text1 && text2) return message.channel.send("wrong format")
+if(!text1 && !text2) return message.channel.send("wrong format")
 params.append("template_id", 135256802);
 params.append("username", process.env.flipUser);
 params.append("password", process.env.flipPass);
 params.append("boxes[0][text]", text0);
 params.append("boxes[1][text]", text1);
+params.append("boxes[2][text]", text2);
 
 const response = await fetch(
     `https://api.imgflip.com/caption_image?${params}`

@@ -30,10 +30,24 @@ for (const file of events) {
     client.on(file.split(".")[0], event.bind(null, client));
 };
 
-/*client.on("message", (event) =>{
-if(event.message.type !== 'message') return
+client.on("message", (event) =>{
+if(event.source.type !== 'user' && event.source.userId !== process.env.dev_id) return
+if(event.message.type !== 'text') return
 
-})*/
+	const args = event.message.text.slice('').trim();
+  const kalimat = args.toLowerCase()
+
+  axios.get(`https://api.affiliateplus.xyz/api/chatbot?message=${kalimat}&botname=BaquaBot&ownername=Tama-chan&user=1`)
+  .then((res)=>{
+    event.reply(res.data.message)
+    
+  })
+  .catch((err)=>{
+    console.log(err)
+    event.reply('Something went wrong!\n\n'+err)
+  })
+
+})
 
 
 
