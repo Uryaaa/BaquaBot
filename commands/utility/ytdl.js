@@ -4,7 +4,7 @@ module.exports = {
     name: 'ytdl',
     description: 'Download music dari LINE',
     aliases : [],
-    category: 'Fun',
+    category: 'Utility',
     example: '{prefix}ytdl [YT Video Url/ID]',
    async execute(client, message, args){
          try {

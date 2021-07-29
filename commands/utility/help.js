@@ -10,17 +10,18 @@ module.exports = {
         const utility = client.commands.filter(x=> x.category == 'Utility').map((x) => '[' + x.name + ']').join(", ");
         const fun = client.commands.filter(x=> x.category == 'Fun').map((x) => '[' + x.name + ']').join(", ");
         const neko = client.commands.filter(x=> x.category == 'Neko').map((x) => '[' + x.name + ']').join(", ");
+        const anime = client.commands.filter(x=> x.category == 'Anime').map((x) => '[' + x.name + ']').join(", ");
 
     
 
 
         message.reply({
           type:'text',
-          text:`Tamabot help panel: semua command yang ada di panel ini munggunakan "!" sebagai trigger, untuk informasi lengkap tentang command gunakan ${process.env.prefix}help [commandName]\n\n🎊Fun\n${fun}\n\n🐱Neko\n${neko}\n\n📁Utility\n${utility}\n\n🤖Bot support\nLINE: Aldi0905 | https://line.me/ti/p/~@tmu7203x`
+          text:`⚓ BaquaBot help panel: semua command yang ada di panel ini munggunakan "!" sebagai trigger, untuk informasi lengkap tentang command gunakan ${process.env.prefix}help [commandName]\n\n🎊Fun\n${fun}\n\n🐱Neko\n${neko}\n\n🍙Anime\n${anime}\n\n📁Utility\n${utility}\n\n🤖Bot support\nLINE: Aldi0905 | https://line.me/ti/p/~@tmu7203x`
         })
       }else{
         try {
-         const command = client.commands.get(args.join(" ").toLowerCase()) || message.client.commands.find(x => x.aliases && x.aliases.includes(args.join(" ").toLowerCase()));
+         const command = client.commands.get(args.join(" ").toLowerCase()) || client.commands.find(x => x.aliases && x.aliases.includes(args.join(" ").toLowerCase()));
         if(!command) return message.reply('command tidak ada')
         message.reply({
           type:"text",

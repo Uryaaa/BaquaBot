@@ -5,7 +5,7 @@ module.exports = {
     name: 'sauce',
     description: 'Search artwork original source by url',
     aliases : ['saucenao'],
-    category: 'Fun',
+    category: 'Anime',
     example: '{prefix}sauce [https://www.example.com/image.jpg]',
     async  execute(client, message, args){
       let saucenao = process.env.sauces;

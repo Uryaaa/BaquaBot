@@ -3,7 +3,7 @@ module.exports = {
     name: 'anime',
     description: 'Informasi anime via MAL',
     aliases : ['nime'],
-    category: 'Fun',
+    category: 'Anime',
     example: '{prefix}anime [query]',
     async  execute(client, message, args){
          let searchString = args.join("%20")

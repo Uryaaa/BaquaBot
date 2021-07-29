@@ -4,7 +4,7 @@ module.exports = {
     name: 'nani',
     description: 'Anime screenshot recognizer',
     aliases : ['whatnime'],
-    category: 'Utility',
+    category: 'Anime',
     example: '{prefix}nani [https://www.example.com/img.jpg]',
     async  execute(client, message, args){
       let imageurl = args[0];
