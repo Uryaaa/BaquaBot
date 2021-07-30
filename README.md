@@ -9,7 +9,7 @@ src="https://obs.line-scdn.net/0hGVhQLwX5GHlVKA73bz1nLnR1ExtmSgZyd05SF3MtR0p5Glx
 >  My first ever LINE Messager bot, quite multipurpose.
 
 
-## Features 📑
+## Main Features 📑
 
 - [x] Anime and Manga lookup
 - [x] KBBI lookup
@@ -20,9 +20,9 @@ src="https://obs.line-scdn.net/0hGVhQLwX5GHlVKA73bz1nLnR1ExtmSgZyd05SF3MtR0p5Glx
 
 Baqua has a lot fun and useful command and keep increasing!
 
-* 🎉 **Fun :** `slap`, `baka`, `mock` `vaporwave` and **10** more!
-* 📂 **Utility :** `kbbi`, `wiki-id`, `math`  and **5** more!
-* 🍥 **Anime :** `anime`, `manga`,  and **3** more!
+* 🎉 **Fun :** `slap`, `baka`, `mock` `vaporwave` and **27** more!
+* 📂 **Utility :** `kbbi`, `wiki-id`, `math`  and **11** more!
+* 🍥 **Anime :** `anime`, `manga`,  and **4** more!
 * 📺 **youtube :** `ytmp3`, `ytdl`,  and **1** more!
 * 👑 **Owner :** `eval`, `npm`,  and **1** more!
 
@@ -42,9 +42,11 @@ Baqua has a lot fun and useful command and keep increasing!
 secret=       // your secret access token
 channel=      // your channel secret
 id=           // your client id
-sauce=        // your saucenao api
+sauces=       // your saucenao api
 prefix=       // your bot prefix
 dev_id=       // your LINE userId
+flipPass=     // your imgflip password
+flipName=     // your imgflip username
 ```
 * Make a folder named **"Public"** in index.js directory to store downloaded file
 * **Install** all the packages by typing **``npm i ``**
