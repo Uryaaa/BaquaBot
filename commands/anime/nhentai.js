@@ -31,9 +31,23 @@ Pages : ${book.pages.length}
 Uploaded on : ${moment(book.uploaded).format('dddd Do MMM YYYY')}
 
 Link : https://nhentai.net/g/${id}`
+        },
+        {
+          type:'template',
+          altText:'nh downloader',
+          template: {
+          type: 'buttons',
+    thumbnailImageUrl: 'https://static.zerochan.net/Minato.Aqua.full.3085893.jpg',
+    title: 'Nhen-dl',
+    text: 'Ini deskripsi',
+    actions: [{
+      type: 'uri',
+      label: 'Download Zip',
+      uri: `https://somethingjs.tama0612.repl.co/download/nhentai/${id}/zip`
+    }]
 
-
-
+          }
+          
         }
       ])
       console.log(api.getImageURL(cover))

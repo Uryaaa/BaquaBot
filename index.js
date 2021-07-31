@@ -31,8 +31,10 @@ for (const file of events) {
 };
 
 client.on("message", (event) =>{
-if(event.source.type !== 'user' && event.source.userId !== process.env.dev_id) return
-if(event.message.type !== 'text') return
+if(event.source.type !== 'user') return
+if(event.message.type !== 'text' || event.type !== 'message') return
+if(event.source.userId === process.env.dev_id) return
+
 
 	const args = event.message.text.slice('').trim();
   const kalimat = args.toLowerCase()

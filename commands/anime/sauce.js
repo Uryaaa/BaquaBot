@@ -16,19 +16,18 @@ module.exports = {
          .then((res) => {
            if(res.length === 0) return message.reply('No results')
            let sauce = res.data.results;
-           console.log(sauce)
+           //console.log(sauce)
           message.reply([
             {
               type:'text',
               text:`First result similarity : ${sauce[0].header.similarity}%
 
-Title : ${sauce[0].data.title || "Failed to fetch title" || sauce[0].data.creator} 
-Source : ${sauce[0].data.ext_urls[0]} \n\n| ${sauce[0].data.source || " "}
+Title : ${sauce[0].data.title || "Failed to fetch title"} 
+Source : ${sauce[0].data.source}
 
 Other with lower similarity :
-| ${sauce[1].data.ext_urls[0]}
+| ${sauce[1].data.ext_urls[0] || 'none found'}
 
-| ${sauce[2].data.ext_urls[0]}
 `
 
 
