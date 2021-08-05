@@ -17,7 +17,9 @@ module.exports = {
       
         ytdl.getInfo(url)
         .then((info)=>{
-       ytdl(url, {filter: 'audioonly', format: 'mp3'}).pipe(fs.createWriteStream(`./public/${info.videoDetails.videoId}.mp3`))  
+          if(info.videoDetails.isPrivate) return message.reply('Video yang anda maksud di private!')
+          if(info.videoDetails.isLiveContent) return message.reply('Tidak bisa memutar Video yang sedang Live')
+       ytdl(url, {filter: 'audioonly', format: 'mp3'}).pipe(fs.createWriteStream(`./public/audio/${info.videoDetails.videoId}.mp3`))  
 
       //Duration get
        var hrs = ~~(info.videoDetails.lengthSeconds / 3600);
@@ -32,7 +34,7 @@ module.exports = {
         
         message.reply([{
         type:"audio",
-        originalContentUrl: `https://tamaline.tama0612.repl.co/img/${info.videoDetails.videoId}.mp3`,
+        originalContentUrl: `https://tamaline.tama0612.repl.co/img/audio/${info.videoDetails.videoId}.mp3`,
         duration:Number(info.videoDetails.lengthSeconds*1000)
       },
       {

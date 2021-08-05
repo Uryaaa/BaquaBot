@@ -25,9 +25,8 @@ module.exports = {
                 }
                 ret += (mins < 10 ?"0" : "") + mins + ":" + (secs < 10 ? "0" : "");
                 ret += "" + secs; 
-
-
-
+if(data.info.isPrivate) return message.reply('Video yang anda maksud diprivate!')
+if(data.info.isLiveContent) return message.reply('Tidak bisa mendownload Livestream')
 message.reply({
   type: 'template',
   altText: 'Video download',
@@ -51,7 +50,7 @@ message.reply({
     }]
   }
 });
-
+//console.log(data.info)
     } catch (error) {
       message.reply({
         type:'text',

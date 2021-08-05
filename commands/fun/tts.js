@@ -1,6 +1,7 @@
 const axios = require('axios')
 const googleapi = require("google-tts-api")
 const fs = require("fs")
+const { getAudioDurationInSeconds } = require('get-audio-duration');
 module.exports = {
     name: 'tts',
     description: 'text to speech',
@@ -14,13 +15,17 @@ module.exports = {
 googleapi.getAudioBase64(tts, { lang: 'id', slow: false, })
 .then((base64) =>{
     const buffer = Buffer.from(base64, 'base64');
-    fs.writeFileSync(`./public/${tts.replace(/\s/g, "_")}.mp3`, buffer, { encoding: 'base64' });
+    fs.writeFileSync(`./public/tts/${tts.replace(/\s/g, "_")}.mp3`, buffer, { encoding: 'base64' });
 
-    message.reply({
+    getAudioDurationInSeconds(`./public/tts/${tts.replace(/\s/g, "_")}.mp3`).then((duration) => {
+      message.reply({
       type:'audio',
-      originalContentUrl:`https://tamaline.tama0612.repl.co/img/${tts.replace(/\s/g, "_")}.mp3`,
-      duration:240000
+      originalContentUrl:`https://tamaline.tama0612.repl.co/img/tts/${tts.replace(/\s/g, "_")}.mp3`,
+      duration:Number(duration*1000)
     })
+  
+});
+
 })
 
   }

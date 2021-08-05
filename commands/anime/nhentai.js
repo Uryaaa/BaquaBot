@@ -2,9 +2,11 @@ const moment = require("moment");
 require('moment-duration-format');
 const {API} = require('nhentai-api');
 const api = new API();
+const fs = require('fs')
+const axios = require("axios")
 module.exports = {
     name: 'nhentai',
-    description: 'Doujin info dari nhentai 👀, bukan download',
+    description: 'Doujin info dari nhentai 👀, bisa download',
     aliases : ['nh', 'finddoujin', 'doujin'],
     category: 'Anime',
     example: '{prefix}nhentai [id]',
@@ -16,8 +18,16 @@ module.exports = {
       const book = await api.getBook(id).catch(()=>null)
       const {title: {english, japanese, pretty},
       tags, page, uploaded, cover} = book
-
-      message.reply([
+      url = api.getImageURL(cover)
+      axios({
+        url,
+        responseType:'stream',
+      })
+      .then((response)=>{
+        response.data
+        .pipe(fs.createWriteStream(`./public/doujins/cover_${id}.jpg`))
+      })
+      message.reply([ 
         {
           type:'text',
           text:`Title english : ${book.title.english}
@@ -37,7 +47,7 @@ Link : https://nhentai.net/g/${id}`
           altText:'nh downloader',
           template: {
           type: 'buttons',
-    thumbnailImageUrl: 'https://static.zerochan.net/Minato.Aqua.full.3085893.jpg',
+    thumbnailImageUrl: `https://tamaline.tama0612.repl.co/img/doujins/cover_${id}.jpg`,
     title: 'Nhen-dl',
     text: 'Ini deskripsi',
     actions: [{
