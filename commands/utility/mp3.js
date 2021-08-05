@@ -4,10 +4,10 @@ const ytdl = require("ytdl-core")
 const axios = require("axios")
 module.exports = {
     name: 'ytmp3',
-    description: 'Play music di LINE, max 10 menit' ,
-    aliases : [],
+    description: 'Play music di LINE' ,
+    aliases : ['yta'],
     category: 'Utility',
-    example: '{prefix}ytmp3 [url]',
+    example: '{prefix}ytmp3 [url/VideoId]',
     async  execute(client, message, args){
       try{
       let query = args.join(' ');

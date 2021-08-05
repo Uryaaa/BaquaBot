@@ -7,20 +7,29 @@ module.exports = {
     description: 'text to speech',
     aliases : [],
     category: 'Fun',
-    example: '{prefix}command [] ? <>',
+    example: '{prefix}tts [text]',
     async  execute(client, message, args){
+      
+       function getRandomFileName() {
+        var timestamp = new Date().toISOString().replace(/[-:.]/g,"");  
+        var random = ("" + Math.random()).substring(2, 8); 
+        var random_number = timestamp+random;  
+        return random_number;
+      }
+    let filename = getRandomFileName();
+
       let tts = args.join(" ")
       if(tts.length === 0) return message.reply("Masukkan text untuk dijadikan audio")
-      if(tts.length > 256) return message.reply("Tidak boleh lebih dari 256 karakter!")
+      if(tts.length > 512) return message.reply("Tidak boleh lebih dari 512 karakter!")
 googleapi.getAudioBase64(tts, { lang: 'id', slow: false, })
 .then((base64) =>{
     const buffer = Buffer.from(base64, 'base64');
-    fs.writeFileSync(`./public/tts/${tts.replace(/\s/g, "_")}.mp3`, buffer, { encoding: 'base64' });
+    fs.writeFileSync(`./public/tts/${filename}.mp3`, buffer, { encoding: 'base64' });
 
-    getAudioDurationInSeconds(`./public/tts/${tts.replace(/\s/g, "_")}.mp3`).then((duration) => {
+    getAudioDurationInSeconds(`./public/tts/${filename}.mp3`).then((duration) => {
       message.reply({
       type:'audio',
-      originalContentUrl:`https://tamaline.tama0612.repl.co/img/tts/${tts.replace(/\s/g, "_")}.mp3`,
+      originalContentUrl:`https://tamaline.tama0612.repl.co/img/tts/${filename}.mp3`,
       duration:Number(duration*1000)
     })
   

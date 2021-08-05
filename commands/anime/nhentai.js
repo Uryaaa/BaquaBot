@@ -30,15 +30,31 @@ module.exports = {
       message.reply([ 
         {
           type:'text',
-          text:`Title english : ${book.title.english}
+          text:`${book.title.pretty}
+          
+English title : ${book.title.english}
 
 Japanese title : ${book.title.japanese}
 
-Tags : ${book.tags.map(t => t.name).sort().join(", ")}
+Characters : ${book.tags.filter(l => l.url.includes('/character/')).map((x) => x.name).sort().join(', ') || ' '}
+
+Tags : ${book.tags.filter(l => l.url.includes('/tag/')).map((x) => x.name).sort().join(', ')}
+
+Artists : ${book.tags.filter(l => l.url.includes('/artist/')).map((x) => x.name).sort().join(', ')}
+
+Groups : ${book.tags.filter(l => l.url.includes('/group/')).map((x) => x.name).sort().join(', ')|| " "}
+
+Language : ${book.tags.filter(l => l.url.includes('/language/')).map((x) => x.name).sort().join(', ')}
+
+Categories : ${book.tags.filter(l => l.url.includes('/category/')).map((x) => x.name).sort().join(', ')}
+
+Parodies : ${book.tags.filter(l => l.url.includes('/parody/')).map((x) => x.name).sort().join(', ') || " "}
 
 Pages : ${book.pages.length}
 
-Uploaded on : ${moment(book.uploaded).format('dddd Do MMM YYYY')}
+Favorite : ${book.favorites}
+
+Uploaded on : ${moment(book.uploaded).format('dddd Do MMM YYYY')}\n${moment.duration(Date.now() - book.uploaded).format('Y [Years] M [Months, and] D [Days]')} ago.
 
 Link : https://nhentai.net/g/${id}`
         },
@@ -60,6 +76,6 @@ Link : https://nhentai.net/g/${id}`
           
         }
       ])
-      console.log(api.getImageURL(cover))
+      console.log(book)
   }
 }
