@@ -49,6 +49,12 @@ flipPass=     // your imgflip password
 flipName=     // your imgflip username
 ```
 * Make a folder named **"Public"** in index.js directory to store downloaded file
+```
+Public/audio        // !ytmp3 command file storage
+Public/doujins      // doujin related cover storage
+Public/danbooru     // booru sites image storage
+Public/tts          // !tts command file storage
+```
 * **Install** all the packages by typing **``npm i ``**
 
 * Go to [LINE Develpers](https://developers.line.biz/) and set up your webhook url.
