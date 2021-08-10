@@ -67,10 +67,8 @@ Public/tts          // !tts command file storage
 ## Bot Support 🤖
 
 > Don't worry i got you, feel free to add me
-> <a href="https://line.me/ti/p/~Aldi0905">
-
-    <img src="https://media.discordapp.net/attachments/861574871754342410/866674650222428180/download_1.png" alt="Tama-chan" />
-
+<a href="https://line.me/ti/p/~Aldi0905">
+    <img src="https://media.discordapp.net/attachments/861574871754342410/866674650222428180/download_1.png" alt="Tama-chan"  />
 </a>
 
 ## License
