@@ -1,4 +1,3 @@
 module.exports = (client, message) => {
-  console.log('member just left')
-  
-}
+  console.log("member just left");
+};
