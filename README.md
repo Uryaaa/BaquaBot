@@ -23,8 +23,8 @@ Baqua has a lot fun and useful command and keep increasing!
 - 🎉 **Fun :** `slap`, `baka`, `mock` `vaporwave` and **27** more!
 - 📂 **Utility :** `kbbi`, `wiki-id`, `math` and **11** more!
 - 🍥 **Anime :** `anime`, `manga`, and **4** more!
-- 📺 **youtube :** `ytmp3`, `ytdl`, and **1** more!
-- 👑 **Owner :** `eval`, `npm`, and **1** more!
+- 📺 **youtube :** `ytmp3`, `ytdl`, and **2** more!
+- 👑 **Owner :** `eval`, `npm`, and **3** more!
 
 ## Invite BaquaBot ➕
 
