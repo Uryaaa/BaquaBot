@@ -15,7 +15,7 @@ module.exports = {
       .sort((x) => new Date(x.time))
       .reverse()
       .map((x, i) => {
-        if (i >= 10) return;
+        if (i >= 20) return;
         x = `${i + 1}. ${x.streamer}\n${moment(x.time)
           .utcOffset(+9)
           .format("dddd, MMMM Do YYYY, HH:mm")} JST\n${x.link}\nStatus : ${

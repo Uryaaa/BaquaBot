@@ -13,6 +13,7 @@ module.exports = {
   async execute(client, message, args) {
     if (!args[0]) return message.reply("Input tidak terdeteksi");
     const id = args[0];
+   // console.log(id)
     if (isNaN(id)) return message.reply("Input nhentai ID saja 👀");
 
     const book = await api.getBook(id).catch(() => null);
@@ -105,13 +106,18 @@ Link : https://nhentai.net/g/${id}`,
         template: {
           type: "buttons",
           thumbnailImageUrl: `https://tamaline.tama0612.repl.co/img/doujins/cover_${id}.jpg`,
-          title: "Nhen-dl",
-          text: "Ini deskripsi",
+          title: "Download",
+          text: "Reload page kalo ga kedownload",
           actions: [
             {
               type: "uri",
-              label: "Download Zip",
+              label: "Download.zip",
               uri: `https://somethingjs.tama0612.repl.co/download/nhentai/${id}/zip`,
+            },
+            {
+              type: "uri",
+              label: "Download.cbz",
+              uri: `https://somethingjs.tama0612.repl.co/download/nhentai/${id}/cbz`,
             },
           ],
         },

@@ -61,9 +61,21 @@ const linebotParser = client.parser();
 
 app.post("/callback", linebotParser);
 app.listen(3000);
-console.log("bot ready");
+
 app.get("/", (request, response) => {
   console.log(`Ping Received.`);
   response.writeHead(200, { "Content-Type": "text/plain" });
   response.end("Tama server for replit ping");
 });
+
+//Unhandled rejection
+process.on("unhandledRejection", (err) => {
+	console.error(err);
+});
+
+//err
+
+client.on("disconnect", () => console.log("Bot is disconnecting...", "warn"))
+	.on("reconnecting", () => console.log("Bot reconnecting...", "log"))
+	.on("error", (e) => console.log(e, "error"))
+	.on("warn", (info) => console.log(info, "warn"));
