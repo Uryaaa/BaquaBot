@@ -4,8 +4,8 @@ src="https://obs.line-scdn.net/0hGVhQLwX5GHlVKA73bz1nLnR1ExtmSgZyd05SF3MtR0p5Glx
 # BaquaBot ⚓
 
 [![Run on Repl.it](https://repl.it/badge/github/Uryaaa/TamaLINE)](https://repl.it/github/Uryaaa/TamaLINE)
-[![Remix on Glitch](https://cdn.glitch.com/2703baf2-b643-4da7-ab91-7ee2a2d00b5b%2Fremix-button.svg)](https://glitch.com/edit/#!/import/github/Uryaaa/TamaLINE)
-[![](https://img.shields.io/badge/linebot-v1.6.1-blue.svg?logo=npm)](https://www.npmjs.com/package/linebot)
+[![Remix on Glitch](https://img.shields.io/badge/-remix%20on%20glitch-3333FF?logo=glitch&logoColor=pink&style=flat)](https://glitch.com/edit/#!/import/github/Uryaaa/TamaLINE)
+[![NPM](https://img.shields.io/badge/linebot-v1.6.1-blue.svg?logo=npm)](https://www.npmjs.com/package/linebot)
 
 > My first ever LINE Messager bot, quite multipurpose.
 
