@@ -11,10 +11,10 @@ src="https://obs.line-scdn.net/0hGVhQLwX5GHlVKA73bz1nLnR1ExtmSgZyd05SF3MtR0p5Glx
 
 ## Main Features 📑
 
-- [x] Anime and Manga lookup
-- [x] KBBI lookup
-- [x] Music downloader
-- [x] 1 on 1 chatbot
+- [x] Anime and Manga lookup 📖
+- [x] Nhentai downloader 🔞
+- [x] Music downloader 🎶
+- [x] 1 on 1 chatbot 🤖
 
 ### Commands List 🌠
 
@@ -28,6 +28,7 @@ Baqua has a lot fun and useful command and keep increasing!
 
 ## Invite BaquaBot ➕
 
+> You must invite this bot to your **LINE GROUP** in order to use it
 <a href="https://line.me/ti/p/~@tmu7203x">
     <img src="https://media.discordapp.net/attachments/861574871754342410/866663803100725248/download.png" alt="BaquaBot" />
 </a>
@@ -56,6 +57,7 @@ Public/audio        // !ytmp3 command file storage
 Public/doujins      // doujin related cover storage
 Public/danbooru     // booru sites image storage
 Public/tts          // !tts command file storage
+Public/video        // !ytmp4 command file storage
 ```
 
 - **Install** all the packages by typing **`npm i `**
