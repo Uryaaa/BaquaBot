@@ -5,7 +5,7 @@ const Enmap = require("enmap");
 const express = require("express");
 const app = express();
 const server = require("https").createServer(app);
-const line = require("linebot");
+const line = require("@waynechang65/linebot");
 let client = line({
   channelId: process.env.id,
   channelSecret: process.env.channel,
@@ -67,6 +67,12 @@ app.get("/", (request, response) => {
   response.writeHead(200, { "Content-Type": "text/plain" });
   response.end("Tama server for replit ping");
 });
+//CHAT CONSOLE
+let y = process.openStdin()
+y.addListener("data", res => {
+	let x = res.toString().trim().split(/ +/g)
+	client.push("Ccf04c952af391626728c464fdefad0e4", x.join(" "))
+})
 
 //Unhandled rejection
 process.on("unhandledRejection", (err) => {

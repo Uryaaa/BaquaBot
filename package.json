@@ -11,17 +11,17 @@
   "dependencies": {
     "@strdr4605/mockingcase": "^1.10.5",
     "@vitalets/google-translate-api": "^7.0.0",
+    "@waynechang65/linebot": "^1.0.1",
     "axios": "^0.21.1",
-    "canvacord": "^5.2.1",
+    "canvacord": "^5.2.3",
     "cheerio": "^1.0.0-rc.10",
-    "enmap": "^5.8.6",
+    "enmap": "^5.8.7",
     "express": "^4.17.1",
     "get-audio-duration": "^3.0.0",
     "get-mp3-duration": "^1.0.0",
     "google-tts-api": "^2.0.2",
     "hanime": "^1.2.1",
     "holo-schedule": "^0.3.1",
-    "linebot": "^1.6.1",
     "mathjs": "^9.4.4",
     "moment": "^2.29.1",
     "moment-duration-format": "^2.3.2",
@@ -30,10 +30,10 @@
     "quick.db": "^7.1.3",
     "request": "^2.88.2",
     "request-promise-native": "^1.0.9",
-    "urban-dictionary": "^3.0.1",
+    "urban-dictionary": "^3.0.2",
     "url": "^0.11.0",
     "weather-js": "^2.0.0",
     "youtube-sr": "^4.1.7",
-    "ytdl-core": "^4.9.0"
+    "ytdl-core": "^4.9.1"
   }
 }
