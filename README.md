@@ -4,17 +4,17 @@ src="https://obs.line-scdn.net/0hGVhQLwX5GHlVKA73bz1nLnR1ExtmSgZyd05SF3MtR0p5Glx
 # BaquaBot ⚓
 
 [![Run on Repl.it](https://repl.it/badge/github/Uryaaa/TamaLINE)](https://repl.it/github/Uryaaa/TamaLINE)
-[![Remix on Glitch](https://cdn.glitch.com/2703baf2-b643-4da7-ab91-7ee2a2d00b5b%2Fremix-button.svg)](https://glitch.com/edit/#!/import/github/Uryaaa/TamaLINE)
-[![](https://img.shields.io/badge/linebot-v1.6.1-blue.svg?logo=npm)](https://www.npmjs.com/package/linebot)
+[![Remix on Glitch](https://img.shields.io/badge/-remix%20on%20glitch-3333FF?logo=glitch&logoColor=pink&style=flat)](https://glitch.com/edit/#!/import/github/Uryaaa/TamaLINE)
+[![NPM](https://img.shields.io/badge/linebot-v1.6.1-blue.svg?logo=npm)](https://www.npmjs.com/package/linebot)
 
 > My first ever LINE Messager bot, quite multipurpose.
 
 ## Main Features 📑
 
-- [x] Anime and Manga lookup
-- [x] KBBI lookup
-- [x] Music downloader
-- [x] 1 on 1 chatbot
+- [x] Anime and Manga lookup 📖
+- [x] Nhentai downloader 🔞
+- [x] Music downloader 🎶
+- [x] 1 on 1 chatbot 🤖
 
 ### Commands List 🌠
 
@@ -23,11 +23,12 @@ Baqua has a lot fun and useful command and keep increasing!
 - 🎉 **Fun :** `slap`, `baka`, `mock` `vaporwave` and **27** more!
 - 📂 **Utility :** `kbbi`, `wiki-id`, `math` and **11** more!
 - 🍥 **Anime :** `anime`, `manga`, and **4** more!
-- 📺 **youtube :** `ytmp3`, `ytdl`, and **1** more!
-- 👑 **Owner :** `eval`, `npm`, and **1** more!
+- 📺 **youtube :** `ytmp3`, `ytdl`, and **2** more!
+- 👑 **Owner :** `eval`, `npm`, and **3** more!
 
 ## Invite BaquaBot ➕
 
+> You must invite this bot to your **LINE GROUP** in order to use it
 <a href="https://line.me/ti/p/~@tmu7203x">
     <img src="https://media.discordapp.net/attachments/861574871754342410/866663803100725248/download.png" alt="BaquaBot" />
 </a>
@@ -56,6 +57,7 @@ Public/audio        // !ytmp3 command file storage
 Public/doujins      // doujin related cover storage
 Public/danbooru     // booru sites image storage
 Public/tts          // !tts command file storage
+Public/video        // !ytmp4 command file storage
 ```
 
 - **Install** all the packages by typing **`npm i `**
