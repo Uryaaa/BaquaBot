@@ -22,6 +22,7 @@
     "google-tts-api": "^2.0.2",
     "hanime": "^1.2.1",
     "holo-schedule": "^0.3.1",
+    "linebot": "^1.6.1",
     "mathjs": "^9.4.4",
     "moment": "^2.29.1",
     "moment-duration-format": "^2.3.2",

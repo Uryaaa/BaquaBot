@@ -10,12 +10,12 @@ module.exports = (client, message) => {
       {
         message.reply({
           type: 'text',
-          text: `Halo ${user[0].displayName}! Welcome to ${profile.groupName}! Semoga betah, saya bot adalah untuk gc ini, untuk mengakses command ketik "!help", oiya silahkan kirim id nya kesini biar bisa di scout.\n\n Kita juga punya Discord : https://discord.gg/YvP9fK2, kalo berminat silahkan join.`
+          text: `Halo ${user.map(i => i.displayName).join(", ")}! Welcome to ${profile.groupName}! Semoga betah, saya adalah bot untuk gc ini, untuk mengakses command ketik "!help", oiya silahkan kirim id nya kesini biar bisa di scout.\n\n Kita juga punya Discord : https://discord.gg/YvP9fK2, kalo berminat silahkan join.`
         })
       } else {
           message.reply({
           type: 'text',
-          text: `Halo ${user[0].displayName}! Welcome to ${profile.groupName}! Semoga betah, saya adalah bot gc ini, untuk mengakses commands bisa ketik "!help".`
+          text: `Halo ${user.map(i => i.displayName).join(", ")}! Welcome to ${profile.groupName}! Semoga betah, saya adalah bot gc ini, untuk mengakses commands bisa ketik "!help".`
         })
       }
     })
