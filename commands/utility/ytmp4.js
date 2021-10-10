@@ -59,7 +59,7 @@ module.exports = {
 *Use LINE for Windows and headset for best experience`,
           },
         ]);
-        //console.log(info.videoDetails.thumbnails)
+        console.log(info.player_response.streamingData.formats)
       });
     } catch (error) {
       message.reply(

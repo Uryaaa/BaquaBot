@@ -6,7 +6,7 @@ module.exports = {
   category: "Anime",
   example: "{prefix}anime [query]",
   async execute(client, message, args) {
-    let searchString = args.join("%20");
+    let searchString = args.join("_");
     if (searchString.length === 0) return message.reply("Masukkan query!");
     axios
       .get("https://api.jikan.moe/v3/search/anime?q=" + searchString)

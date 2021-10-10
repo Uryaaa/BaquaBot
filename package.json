@@ -17,6 +17,7 @@
     "cheerio": "^1.0.0-rc.10",
     "enmap": "^5.8.7",
     "express": "^4.17.1",
+    "genshin-db": "^3.10.4",
     "get-audio-duration": "^3.0.0",
     "get-mp3-duration": "^1.0.0",
     "google-tts-api": "^2.0.2",

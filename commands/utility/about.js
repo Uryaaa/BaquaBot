@@ -10,7 +10,7 @@ module.exports = {
     async  execute(client, message, args){
       message.reply({
         type:'text',
-        text:`⚓ BaquaBot v${version}
+        text:`⚓ BaquaBot v${version} ⚠️ {DEPRECATED}
 =====BOT=====
 👑 Owner : Tama-chan
 💭 Prefix : ${process.env.prefix}
@@ -22,7 +22,7 @@ module.exports = {
 🖥 Arch : ${process.arch}
 💾 Memory : ${(process.memoryUsage().rss / 1024 / 1024).toFixed(2)} MB RSS\n${(process.memoryUsage().heapUsed / 1024 / 1024).toFixed(2)} MB Heap\''
 🧠 NodeJS : ${process.version}
-⚓ Source code : Soon
+⚓ Source code : https://github.com/Uryaaa/BaquaBot
 `
       })
 
