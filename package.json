@@ -27,6 +27,7 @@
     "mathjs": "^9.4.4",
     "moment": "^2.29.1",
     "moment-duration-format": "^2.3.2",
+    "nana-api": "^1.1.4",
     "nhentai-api": "^3.0.2",
     "node-fetch": "^2.6.1",
     "quick.db": "^7.1.3",

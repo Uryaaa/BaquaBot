@@ -1,14 +1,14 @@
 const axios = require("axios");
 
 module.exports = {
-  name: "waifu",
-  description: "Send waifu gif",
+  name: "happy",
+  description: "Send happy gif",
   aliases: [],
   category: "Neko",
-  example: "{prefix}waifu",
+  example: "{prefix}happy",
   async execute(client, message, args) {
     await axios
-      .get("https://api.waifu.pics/sfw/waifu")
+      .get("https://api.waifu.pics/sfw/happy")
       .then((res) => {
         console.log(res)
         message.reply({
@@ -22,3 +22,5 @@ module.exports = {
       });
   },
 };
+
+

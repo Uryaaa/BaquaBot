@@ -1,5 +1,13 @@
 {
   "files": {
+    "commands/utility/pdf.js": [
+      {
+        "id": "789a6c04-6ab0-4aee-8b21-0562014e7ea2",
+        "line": 1,
+        "version": 0,
+        "index": 0
+      }
+    ],
     "index.js": [
       {
         "id": "67e0d1f3-f8fa-4951-9566-c44a8372001b",
