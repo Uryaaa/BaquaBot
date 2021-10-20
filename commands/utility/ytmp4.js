@@ -25,7 +25,7 @@ module.exports = {
         if (info.videoDetails.isPrivate)
           return message.reply("Video yang anda maksud di private!");
         if (info.videoDetails.lengthSeconds > 700)
-          return message.reply('Video tidak boleh lebih dari 11 menit!')
+          return message.reply("Video tidak boleh lebih dari 11 menit!");
         if (info.videoDetails.isLiveContent)
           return message.reply("Tidak bisa memutar Video yang sedang Live");
         ytdl(url).pipe(
@@ -49,8 +49,7 @@ module.exports = {
           {
             type: "video",
             originalContentUrl: `https://tamaline.tama0612.repl.co/img/video/${info.videoDetails.videoId}.mp4`,
-            previewImageUrl: info.videoDetails.thumbnails[0].url
-            
+            previewImageUrl: info.videoDetails.thumbnails[0].url,
           },
           {
             type: "text",
@@ -59,7 +58,7 @@ module.exports = {
 *Use LINE for Windows and headset for best experience`,
           },
         ]);
-        console.log(info.player_response.streamingData.formats)
+        console.log(info.player_response.streamingData.formats);
       });
     } catch (error) {
       message.reply(

@@ -10,7 +10,6 @@ module.exports = {
     await axios
       .get("https://api.waifu.pics/sfw/bonk")
       .then((res) => {
-       
         message.reply({
           type: "image",
           originalContentUrl: res.data.url,

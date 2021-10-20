@@ -68,20 +68,21 @@ app.get("/", (request, response) => {
   response.end("Tama server for replit ping");
 });
 //CHAT CONSOLE
-let y = process.openStdin()
-y.addListener("data", res => {
-	let x = res.toString().trim().split(/ +/g)
-	client.push("Ccf04c952af391626728c464fdefad0e4", x.join(" "))
-})
+let y = process.openStdin();
+y.addListener("data", (res) => {
+  let x = res.toString().trim().split(/ +/g);
+  client.push(process.env.consoleguild, x.join(" "));
+});
 
 //Unhandled rejection
 process.on("unhandledRejection", (err) => {
-	console.error(err);
+  console.error(err);
 });
 
 //err
 
-client.on("disconnect", () => console.log("Bot is disconnecting...", "warn"))
-	.on("reconnecting", () => console.log("Bot reconnecting...", "log"))
-	.on("error", (e) => console.log(e, "error"))
-	.on("warn", (info) => console.log(info, "warn"));
+client
+  .on("disconnect", () => console.log("Bot is disconnecting...", "warn"))
+  .on("reconnecting", () => console.log("Bot reconnecting...", "log"))
+  .on("error", (e) => console.log(e, "error"))
+  .on("warn", (info) => console.log(info, "warn"));

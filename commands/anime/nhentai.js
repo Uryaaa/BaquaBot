@@ -13,7 +13,7 @@ module.exports = {
   async execute(client, message, args) {
     if (!args[0]) return message.reply("Input tidak terdeteksi");
     const id = args[0];
-   // console.log(id)
+    // console.log(id)
     if (isNaN(id)) return message.reply("Input nhentai ID saja 👀");
 
     const book = await api.getBook(id).catch(() => null);
@@ -123,6 +123,6 @@ Link : https://nhentai.net/g/${id}`,
         },
       },
     ]);
-    console.log(book);
+    // console.log(book);
   },
 };

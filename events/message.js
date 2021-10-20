@@ -1,5 +1,3 @@
-
-
 module.exports = (client, message) => {
   try {
     let prefix = process.env.prefix;

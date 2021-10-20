@@ -14,10 +14,9 @@ module.exports = {
   example: "{prefix}nhentai [id]",
   async execute(client, message, args) {
     // cursed unfriendly, dont do it, just use one package, dont be lazy like me
-   const nanabook = await nana.random().catch(() => null);
+    const nanabook = await nana.random().catch(() => null);
     const id = nanabook.id;
-   // console.log(id)
-   
+    // console.log(id)
 
     const book = await api.getBook(id).catch(() => null);
     const {
@@ -126,6 +125,6 @@ Link : https://nhentai.net/g/${id}`,
         },
       },
     ]);
-   // console.log(book);
+    // console.log(book);
   },
 };
