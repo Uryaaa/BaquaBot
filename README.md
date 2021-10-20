@@ -20,19 +20,17 @@ src="https://obs.line-scdn.net/0hGVhQLwX5GHlVKA73bz1nLnR1ExtmSgZyd05SF3MtR0p5Glx
 
 Baqua has a lot fun and useful command and keep increasing!
 
-- 🎉 **Fun :** `slap`, `baka`, `mock` `vaporwave` and **27** more!
+- 🎉 **Fun :** `slap`, `baka`, `mock` `vaporwave` and **29** more!
 - 📂 **Utility :** `kbbi`, `wiki-id`, `math` and **11** more!
-- 🍥 **Anime :** `anime`, `manga`, and **4** more!
-- 📺 **youtube :** `ytmp3`, `ytdl`, and **2** more!
+- 🍥 **Anime :** `anime`, `manga`, and **6** more!
+- 📺 **youtube :** `ytmp3`, `ytdl`, and **3** more!
 - 👑 **Owner :** `eval`, `npm`, and **3** more!
 
 ## Invite BaquaBot ➕
 
 > You must invite this bot to your **LINE GROUP** in order to use it
-> <a href="https://line.me/ti/p/~@tmu7203x">
-
+ <a href="https://line.me/ti/p/~@tmu7203x">
     <img src="https://media.discordapp.net/attachments/861574871754342410/866663803100725248/download.png" alt="BaquaBot" />
-
 </a>
 
 ## Bot Setup 🔧
@@ -71,8 +69,7 @@ Public/video        // !ytmp4 command file storage
 ## Bot Support 🤖
 
 > Don't worry i got you, feel free to add me
-> <a href="https://line.me/ti/p/~Aldi0905">
-
+<a href="https://line.me/ti/p/~Aldi0905">
     <img src="https://media.discordapp.net/attachments/861574871754342410/866674650222428180/download_1.png" alt="Tama-chan"  />
 
 </a>
