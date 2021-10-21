@@ -33,10 +33,12 @@ module.exports = {
         size: "kilo",
         hero: {
           type: "image",
-          url: `https://tamaline.tama0612.repl.co/img/doujins/cover_${nanabook.results[i].id}.jpg`,
+          url:
+            `https://tamaline.tama0612.repl.co/img/doujins/cover_${nanabook.results[i].id}.jpg` ||
+            "https://img.wallpapersafari.com/tablet/1536/2048/19/44/evOxST.jpg",
           size: "full",
           aspectMode: "cover",
-          aspectRatio: "320:213",
+          aspectRatio: "2:3",
         },
         body: {
           type: "box",
@@ -44,7 +46,7 @@ module.exports = {
           contents: [
             {
               type: "text",
-              text: nanabook.results[i].title,
+              text: nanabook.results[i].title || "Can't fetch title",
               weight: "bold",
               size: "sm",
             },
@@ -54,7 +56,7 @@ module.exports = {
               contents: [
                 {
                   type: "text",
-                  text: nanabook.results[i].language,
+                  text: nanabook.results[i].language || "Can't fetch language",
                   size: "sm",
                   color: "#8c8c8c",
                   margin: "sm",

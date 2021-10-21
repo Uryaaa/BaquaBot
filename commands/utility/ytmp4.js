@@ -58,7 +58,7 @@ module.exports = {
 *Use LINE for Windows and headset for best experience`,
           },
         ]);
-        console.log(info.player_response.streamingData.formats);
+        //console.log(info.player_response.streamingData.formats);
       });
     } catch (error) {
       message.reply(
