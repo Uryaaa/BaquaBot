@@ -12,7 +12,7 @@ src="https://obs.line-scdn.net/0hGVhQLwX5GHlVKA73bz1nLnR1ExtmSgZyd05SF3MtR0p5Glx
 ## Main Features 📑
 
 - [x] Anime and Manga lookup 📖
-- [x] Nhentai downloader 🔞
+- [x] Action roleplay 😺
 - [x] Music downloader 🎶
 - [x] 1 on 1 chatbot 🤖
 
