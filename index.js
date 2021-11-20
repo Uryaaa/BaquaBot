@@ -78,6 +78,9 @@ y.addListener("data", (res) => {
 process.on("unhandledRejection", (err) => {
   console.error(err);
 });
+process.on('uncaughtException', function (err) {
+    console.error(err);
+});
 
 //err
 

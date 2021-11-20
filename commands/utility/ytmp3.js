@@ -1,12 +1,11 @@
 const fs = require("fs");
-const http = require("https");
-const ytdl = require("ytdl-core")
-const axios = require("axios")
+const ytdl = require("ytdl-core");
+const axios = require("axios");
 module.exports = {
-  name: "ytmp3",
+  name: "old-ytmp3",
   description: "Play music di LINE",
   aliases: ["yta"],
-  category: "Utility",
+  category: "-",
   example: "{prefix}ytmp3 [url/VideoId]",
   async execute(client, message, args) {
     try {
@@ -20,12 +19,18 @@ module.exports = {
           /^.*(?:(?:youtu\.be\/|v\/|vi\/|u\/\w\/|embed\/)|(?:(?:watch)?\?v(?:i)?=|\&v(?:i)?=))([^#\&\?]*).*/
         )[1];
       let url = `https://www.youtube.com/watch?v=${query}`;
-      let stream = ytdl(url)
-      stream.on("info", (info)=>{
+
+      ytdl.getInfo(url).then((info) => {
         if (info.videoDetails.isPrivate)
           return message.reply("Video yang anda maksud di private!");
         if (info.videoDetails.isLiveContent)
           return message.reply("Tidak bisa memutar Video yang sedang Live");
+        ytdl(url, { filter: "audioonly", format: "mp3" }).pipe(
+          fs.createWriteStream(
+            `./public/audio/${info.videoDetails.videoId}.mp3`, {encoding: null,}
+          )
+        );
+        
 
         //Duration get
         var hrs = ~~(info.videoDetails.lengthSeconds / 3600);
@@ -38,28 +43,21 @@ module.exports = {
         ret += (mins < 10 ? "0" : "") + mins + ":" + (secs < 10 ? "0" : "");
         ret += "" + secs;
 
-        data = info.player_response.streamingData.adaptiveFormats
-        audioLo = data.filter(a => a.audioQuality == "AUDIO_QUALITY_LOW")
-        audioMed = data.filter(a => a.audioQuality == "AUDIO_QUALITY_MEDIUM")
-
         message.reply([
           {
             type: "audio",
-            originalContentUrl: audioMed[0].url,
+            originalContentUrl: `https://tamaline.tama0612.repl.co/img/audio/${info.videoDetails.videoId}.mp3`,
             duration: Number(info.videoDetails.lengthSeconds * 1000),
           },
           {
             type: "text",
             text: `🎧 Now playing ${info.videoDetails.title}\n[00:00/${ret}]
 
-Update : Audio file sekarang download langsung dari youtube, jadi ngeplaynya bakal agak lama dari sebelumnya
-Pake LINE for Windows dan Headset untuk best experience,`
+*Use LINE for Windows and headset for best experience`,
           },
-        ]);        
-
-        //console.log(audioMed[0].url)
-      })
-
+        ]);
+        console.log(info.videoDetails)
+      });
     } catch (error) {
       message.reply(
         "Telah terjadi error, biasanya terjadi jika url bukan video youtube, kalau kamu yakin ini video youtube, silahkan coba lagi.\n\n" +

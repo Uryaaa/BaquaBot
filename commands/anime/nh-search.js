@@ -1,6 +1,7 @@
 const nhentai = require("nana-api");
 const nana = new nhentai();
-
+const axios = require("axios")
+const fs = require("fs")
 module.exports = {
   name: "nhsr",
   description: "Cari doujin di nhentai dengan input keyword",

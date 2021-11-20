@@ -5,6 +5,6 @@ module.exports = {
   category: "Utility",
   example: "{prefix}ping",
   async execute(client, message, args) {
-    message.reply(`Pong 🏓 - ${Date.now() - message.timestamp}ms`);
+    message.reply(`Pong 🏓 Replit server respond time - ${Date.now() - message.timestamp}ms`);
   },
 };
