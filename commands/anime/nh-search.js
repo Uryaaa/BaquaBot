@@ -12,7 +12,7 @@ module.exports = {
     let keywords = args.join(" ");
     if (!keywords) return message.reply("Input tidak terdeteksi");
     const nanabook = await nana.search(keywords).catch(() => null);
-    //console.log(nanabook)
+    console.log(nanabook)
 
     let content = [];
 

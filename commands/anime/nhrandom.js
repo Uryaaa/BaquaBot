@@ -125,6 +125,6 @@ Link : https://nhentai.net/g/${id}`,
         },
       },
     ]);
-    // console.log(book);
+     console.log(book);
   },
 };
