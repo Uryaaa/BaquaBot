@@ -17,7 +17,7 @@ module.exports = {
         );
       if (query.startsWith("https"))
         query = query.match(
-          /^.*(?:(?:youtu\.be\/|v\/|vi\/|u\/\w\/|embed\/)|(?:(?:watch)?\?v(?:i)?=|\&v(?:i)?=))([^#\&\?]*).*/
+          /^.*(?:(?:youtu\.be\/|v\/|vi\/|u\/\w\/|embed\/)|shorts\/|(?:(?:watch)?\?v(?:i)?=|\&v(?:i)?=))([^#\&\?]*).*/
         )[1];
       let url = `https://www.youtube.com/watch?v=${query}`;
 
@@ -48,14 +48,14 @@ module.exports = {
         message.reply([
           {
             type: "video",
-            originalContentUrl: `https://tamaline.tama0612.repl.co/img/video/${info.videoDetails.videoId}.mp4`,
+            originalContentUrl: `https://baquabot.herokuapp.com/img/video/${info.videoDetails.videoId}.mp4`,
             previewImageUrl: info.videoDetails.thumbnails[0].url,
           },
           {
             type: "text",
             text: `🎧 Now playing ${info.videoDetails.title}\n[00:00/${ret}]
 
-*Use LINE for Windows and headset for best experience`,
+Download langsung video nya menggunakan LINE FOR WINDOWS `,
           },
         ]);
         //console.log(info.player_response.streamingData.formats);
