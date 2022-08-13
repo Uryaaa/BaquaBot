@@ -17,7 +17,7 @@ module.exports = {
 
       if (query.startsWith("https"))
         query = query.match(
-          /^.*(?:(?:youtu\.be\/|v\/|vi\/|u\/\w\/|embed\/)|(?:(?:watch)?\?v(?:i)?=|\&v(?:i)?=))([^#\&\?]*).*/
+          /^.*(?:(?:youtu\.be\/|v\/|vi\/|u\/\w\/|embed\/)|shorts\/|(?:(?:watch)?\?v(?:i)?=|\&v(?:i)?=))([^#\&\?]*).*/
         )[1];
       let data = await axios.get(`https://tama0612.repl.co/api/info/${query}`);
       data = data.data;
@@ -34,31 +34,78 @@ module.exports = {
         return message.reply("Video yang anda maksud diprivate!");
       if (data.info.isLiveContent)
         return message.reply("Tidak bisa mendownload Livestream");
+
       message.reply({
-        type: "template",
-        altText: "Video download",
-        template: {
-          type: "buttons",
-          thumbnailImageUrl: data.info.thumbnail.thumbnails.pop().url,
-          title: "Kualitas yang tersedia",
-          text: `Video download | ${ret}`,
-          actions: [
-            {
-              type: "uri",
-              label: "Audio only",
-              uri: `https://tama0612.repl.co/api/download/${query}/audioOnly/default`,
-            },
-            {
-              type: "uri",
-              label: "Video (360p)",
-              uri: `https://tama0612.repl.co/api/download/${query}/default/${data.video[0].qualityLabel}`,
-            },
-            {
-              type: "uri",
-              label: "Video only (720p)",
-              uri: `https://tama0612.repl.co/api/download/${query}/videoOnly/${data.videoOnly[1].qualityLabel}`,
-            },
-          ],
+        type: "flex",
+        altText: "Help panel",
+        contents: {
+          type: "bubble",
+          size: "kilo",
+          hero: {
+            type: "image",
+            url: data.info.thumbnail.thumbnails.pop().url,
+            aspectMode: "cover",
+            size: "full",
+            aspectRatio: "320:213",
+          },
+          body: {
+            type: "box",
+            layout: "vertical",
+            contents: [
+              {
+                type: "text",
+                text: "Kualitas yang tersedia",
+                weight: "bold",
+              },
+              {
+                type: "text",
+                text: `Video download | ${ret}`,
+              },
+              {
+                type: "separator",
+                margin: "md",
+              },
+            ],
+          },
+          footer: {
+            type: "box",
+            layout: "vertical",
+            contents: [
+              {
+                type: "button",
+                action: {
+                  type: "uri",
+                  label: "Audio only",
+                  uri: `https://tama0612.repl.co/api/download/${query}/audioOnly/default`,
+                },
+                style: "primary",
+                height: "sm",
+                margin: "sm",
+              },
+              {
+                type: "button",
+                action: {
+                  type: "uri",
+                  label: "Video (360p)",
+                  uri: `https://tama0612.repl.co/api/download/${query}/default/${data.video[0].qualityLabel}`,
+                },
+                style: "primary",
+                height: "sm",
+                margin: "md",
+              },
+              {
+                type: "button",
+                action: {
+                  type: "uri",
+                  label: "Video only (720p)",
+                  uri: `https://tama0612.repl.co/api/download/${query}/videoOnly/${data.videoOnly[1].qualityLabel}`,
+                },
+                style: "primary",
+                height: "sm",
+                margin: "md",
+              },
+            ],
+          },
         },
       });
       //console.log(data.info)

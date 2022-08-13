@@ -2,11 +2,11 @@ const fs = require("fs");
 const ytdl = require("ytdl-core");
 const axios = require("axios");
 module.exports = {
-  name: "old-ytmp3",
-  description: "Play music di LINE",
-  aliases: ["yta"],
-  category: "-",
-  example: "{prefix}ytmp3 [url/VideoId]",
+  name: "audio",
+  description: "ytmp3 tapi load lebih cepat",
+  aliases: ["ytp", "play"],
+  category: "Utility",
+  example: "{prefix}audio [url/VideoId]",
   async execute(client, message, args) {
     try {
       let query = args.join(" ");
@@ -16,7 +16,7 @@ module.exports = {
         );
       if (query.startsWith("https"))
         query = query.match(
-          /^.*(?:(?:youtu\.be\/|v\/|vi\/|u\/\w\/|embed\/)|(?:(?:watch)?\?v(?:i)?=|\&v(?:i)?=))([^#\&\?]*).*/
+          /^.*(?:(?:youtu\.be\/|v\/|vi\/|u\/\w\/|embed\/)|shorts\/|(?:(?:watch)?\?v(?:i)?=|\&v(?:i)?=))([^#\&\?]*).*/
         )[1];
       let url = `https://www.youtube.com/watch?v=${query}`;
 
@@ -27,10 +27,10 @@ module.exports = {
           return message.reply("Tidak bisa memutar Video yang sedang Live");
         ytdl(url, { filter: "audioonly", format: "mp3" }).pipe(
           fs.createWriteStream(
-            `./public/audio/${info.videoDetails.videoId}.mp3`, {encoding: null,}
+            `./public/audio/${info.videoDetails.videoId}.mp3`,
+            { encoding: null }
           )
         );
-        
 
         //Duration get
         var hrs = ~~(info.videoDetails.lengthSeconds / 3600);
@@ -46,17 +46,17 @@ module.exports = {
         message.reply([
           {
             type: "audio",
-            originalContentUrl: `https://tamaline.tama0612.repl.co/img/audio/${info.videoDetails.videoId}.mp3`,
+            originalContentUrl: `https://baquabot.herokuapp.com/img/audio/${info.videoDetails.videoId}.mp3`,
             duration: Number(info.videoDetails.lengthSeconds * 1000),
           },
           {
             type: "text",
             text: `🎧 Now playing ${info.videoDetails.title}\n[00:00/${ret}]
 
-*Use LINE for Windows and headset for best experience`,
+Audio terpotong saat di play? coba pake !ytmp3 [url/VideoId] (DEPRECATED) atau play audio lewat LINE FOR WINDOWS`,
           },
         ]);
-        console.log(info.videoDetails)
+        console.log(info.videoDetails);
       });
     } catch (error) {
       message.reply(
