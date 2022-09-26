@@ -28,16 +28,17 @@ Baqua has a lot fun and useful command and keep increasing!
 
 ## Invite BaquaBot ➕
 
+
 > You must invite this bot to your **LINE GROUP** in order to use it
-> <a href="https://line.me/ti/p/~@tmu7203x">
 
+<a href="https://line.me/ti/p/~@tmu7203x">
     <img src="https://media.discordapp.net/attachments/861574871754342410/866663803100725248/download.png" alt="BaquaBot" />
-
 </a>
+
 
 ## Bot Setup 🔧
 
-- **Clone the Repo** by typing `git clone https://github.com/Uryaaa/TamaLINE` or Download the .zip file by clicking **[Here](https://github.com/Uryaaa/TamaLINE/archive/master.zip)**
+- **Clone the Repo** by typing `git clone https://github.com/Uryaaa/BaquaBot` or Download the .zip file by clicking **[Here](https://github.com/Uryaaa/BaquaBit/archive/main.zip)**
 
 - Rename **[example.env]** to **[.env]** and fill with your respective information.
 
@@ -51,16 +52,14 @@ dev_id=       // your LINE userId
 flipPass=     // your imgflip password
 flipName=     // your imgflip username
 baseurl=      // your webhook url (https://www.example.com)
-removebgAPI=   // your removeBG api
+removebgAPI=  // your removeBG api
 ```
 
 - Make a folder named **"Public"** in index.js directory to store downloaded file
 
 ```
 Public/audio        // !ytmp3 command file storage
-Public/doujins      // doujin related cover storage
-Public/danbooru     // booru sites image storage
-Public/tts          // !tts command file storage
+Public/images       // various image command storage
 Public/video        // !ytmp4 command file storage
 ```
 
@@ -73,8 +72,7 @@ Public/video        // !ytmp4 command file storage
 ## Bot Support 🤖
 
 > Don't worry i got you, feel free to add me
-> <a href="https://line.me/ti/p/~Aldi0905">
-
+<a href="https://line.me/ti/p/~Aldi0905">
     <img src="https://media.discordapp.net/attachments/861574871754342410/866674650222428180/download_1.png" alt="Tama-chan"  />
 
 </a>
