@@ -38,7 +38,7 @@ Baqua has a lot fun and useful command and keep increasing!
 
 ## Bot Setup 🔧
 
-- **Clone the Repo** by typing `git clone https://github.com/Uryaaa/BaquaBot` or Download the .zip file by clicking **[Here](https://github.com/Uryaaa/BaquaBit/archive/main.zip)**
+- **Clone the Repo** by typing `git clone https://github.com/Uryaaa/BaquaBot` or Download the .zip file by clicking **[Here](https://github.com/Uryaaa/BaquaBot/archive/main.zip)**
 
 - Rename **[example.env]** to **[.env]** and fill with your respective information.
 
