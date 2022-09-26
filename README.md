@@ -3,24 +3,24 @@ src="https://obs.line-scdn.net/0hGVhQLwX5GHlVKA73bz1nLnR1ExtmSgZyd05SF3MtR0p5Glx
 
 # BaquaBot ⚓
 
-[![Run on Repl.it](https://repl.it/badge/github/Uryaaa/TamaLINE)](https://repl.it/github/Uryaaa/TamaLINE)
-[![Remix on Glitch](https://img.shields.io/badge/-remix%20on%20glitch-3333FF?logo=glitch&logoColor=pink&style=flat)](https://glitch.com/edit/#!/import/github/Uryaaa/TamaLINE)
-[![NPM](https://img.shields.io/badge/linebot-v1.6.1-blue.svg?logo=npm)](https://www.npmjs.com/package/linebot)
+[![Run on Repl.it](https://repl.it/badge/github/Uryaaa/Baquabot)](https://repl.it/github/Uryaaa/BaquaBot)
+[![Remix on Glitch](https://img.shields.io/badge/-remix%20on%20glitch-3333FF?logo=glitch&logoColor=pink&style=flat)](https://glitch.com/edit/#!/import/github/Uryaaa/BaquaBot)
+[![NPM](https://img.shields.io/badge/linebot-v1.2.1-blue.svg?logo=npm)](https://www.npmjs.com/package/@waynechang65/linebot)
 
 > My first ever LINE Messager bot, quite multipurpose.
 
 ## Main Features 📑
 
 - [x] Anime and Manga lookup 📖
-- [x] Action roleplay 😺
 - [x] Music downloader 🎶
-- [x] 1 on 1 chatbot 🤖
+- [x] Tons of utility 🆘 
+
 
 ### Commands List 🌠
 
 Baqua has a lot fun and useful command and keep increasing!
 
-- 🎉 **Fun :** `slap`, `baka`, `mock` `vaporwave` and **29** more!
+- 🎉 **Fun :** `sus`, `baka`, `mock` `vaporwave` and **11** more!
 - 📂 **Utility :** `kbbi`, `wiki-id`, `math` and **11** more!
 - 🍥 **Anime :** `anime`, `manga`, and **6** more!
 - 📺 **youtube :** `ytmp3`, `ytdl`, and **3** more!
