@@ -12,7 +12,7 @@ src="https://obs.line-scdn.net/0hGVhQLwX5GHlVKA73bz1nLnR1ExtmSgZyd05SF3MtR0p5Glx
 ## Main Features 📑
 
 - [x] Anime and Manga lookup 📖
-- [x] Nhentai downloader 🔞
+- [x] Action roleplay 😺
 - [x] Music downloader 🎶
 - [x] 1 on 1 chatbot 🤖
 
@@ -29,8 +29,10 @@ Baqua has a lot fun and useful command and keep increasing!
 ## Invite BaquaBot ➕
 
 > You must invite this bot to your **LINE GROUP** in order to use it
- <a href="https://line.me/ti/p/~@tmu7203x">
+> <a href="https://line.me/ti/p/~@tmu7203x">
+
     <img src="https://media.discordapp.net/attachments/861574871754342410/866663803100725248/download.png" alt="BaquaBot" />
+
 </a>
 
 ## Bot Setup 🔧
@@ -48,6 +50,8 @@ prefix=       // your bot prefix
 dev_id=       // your LINE userId
 flipPass=     // your imgflip password
 flipName=     // your imgflip username
+baseurl=      // your webhook url (https://www.example.com)
+removebgAPI=   // your removeBG api
 ```
 
 - Make a folder named **"Public"** in index.js directory to store downloaded file
@@ -69,7 +73,8 @@ Public/video        // !ytmp4 command file storage
 ## Bot Support 🤖
 
 > Don't worry i got you, feel free to add me
-<a href="https://line.me/ti/p/~Aldi0905">
+> <a href="https://line.me/ti/p/~Aldi0905">
+
     <img src="https://media.discordapp.net/attachments/861574871754342410/866674650222428180/download_1.png" alt="Tama-chan"  />
 
 </a>
