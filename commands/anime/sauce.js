@@ -1,6 +1,5 @@
 const axios = require('axios')
 
-
 module.exports = {
     name: 'sauce',
     description: 'Search artwork original source by url',
@@ -15,22 +14,21 @@ module.exports = {
          axios.get(`https://saucenao.com/search.php?db=999&output_type=2&testmode=1&numres=5&api_key=${saucenao}&url=${imageurl}`)
          .then((res) => {
            if(res.length === 0) return message.reply('No results')
-           let sauce = res.data.results;
-           //console.log(sauce)
+           let sauce = res.data.results[0];
+           console.log(sauce)
           message.reply([
             {
               type:'text',
-              text:`First result similarity : ${sauce[0].header.similarity}%
+              text:`Similarity: ${sauce.header.similarity}%
 
-Title : ${sauce[0].data.title || "Failed to fetch title"} 
-Source : ${sauce[0].data.source}
+Title: ${sauce.data.title || "-"}
 
-Other with lower similarity :
-| ${sauce[1].data.ext_urls[0] || 'none found'}
-
-`
-
-
+by: ${sauce.data.member_name || sauce.data.creator || "-"}
+${(sauce.data.eng_name) ? "Eng title: " + sauce.data.eng_name : ""}
+${(sauce.data.jp_name) ? "Jp title: " + sauce.data.jp_name : ""}
+${(sauce.data.source) ? "Source:\n" + sauce.data.source : ""} 
+===========================
+${(sauce.data.ext_urls) ? "External urls:\n- "+ sauce.data.ext_urls.map((i) => i).join("\n\n - ") : ""}`
             },
           ])
 
@@ -41,7 +39,7 @@ Other with lower similarity :
          })
 
       }else{
-        message.reply("Url harus berawal https!")
+        message.reply("Url harus berawal https!", "a")
       }
 
   }

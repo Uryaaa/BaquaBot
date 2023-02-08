@@ -37,17 +37,6 @@ module.exports = {
           )
         );
 
-        //Duration get
-        var hrs = ~~(info.videoDetails.lengthSeconds / 3600);
-        var mins = ~~((info.videoDetails.lengthSeconds % 3600) / 60);
-        var secs = ~~info.videoDetails.lengthSeconds % 60;
-        var ret = "";
-        if (hrs > 0) {
-          ret += (hrs < 10 ? "0" : "") + hrs + ":" + (mins < 10 ? "0" : "");
-        }
-        ret += (mins < 10 ? "0" : "") + mins + ":" + (secs < 10 ? "0" : "");
-        ret += "" + secs;
-
         message.reply([
           {
             type: "audio",
@@ -56,9 +45,9 @@ module.exports = {
           },
           {
             type: "text",
-            text: `🎧 Now playing ${info.videoDetails.title}\n[00:00/${ret}]
+            text: `🎧 Now playing ${info.videoDetails.title}
 
-Audio terpotong saat di play? coba pake !ytmp3 [url/VideoId] (DEPRECATED) atau play audio lewat LINE FOR WINDOWS`,
+Audio terpotong saat di play? coba play audio lewat LINE FOR WINDOWS`,
           },
         ]);
         console.log("request receive!");

@@ -1,5 +1,5 @@
 const request = require("request-promise-native");
-const fetch = require("node-fetch");
+
 const canvacord = require("canvacord");
 const fs = require("fs");
 
@@ -43,7 +43,7 @@ module.exports = {
         url: "https://vacefron.nl/api/ejected",
         qs: {
           name: text,
-          imposter: bulian,
+          impostor: bulian,
           crewmate: color[Math.floor(Math.random() * color.length)],
         },
         encoding: null,

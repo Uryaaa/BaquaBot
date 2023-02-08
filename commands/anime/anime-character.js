@@ -1,20 +1,20 @@
 const axios = require("axios");
+
 module.exports = {
-  name: "anime",
-  description: "Informasi anime via MAL",
-  aliases: ["nime"],
+  name: "character",
+  description: "Animanga character via MAL",
+  aliases: ["anichar", "char"],
   category: "Anime",
-  example: "{prefix}anime [query]",
+  example: "{prefix}character [query]",
   async execute(client, message, args) {
     let searchString = args.join(" ");
     if (searchString.length === 0) return message.reply("Masukkan query!");
     let content = [];
-    axios.get(`https://api.jikan.moe/v4/anime?q=${searchString}&page=1&limit=12`)
-    .then((results)=> {
-  
-        let res = results.data
-        res.data.map((x, i)=> {
-          console.log(res.data[0])
+    axios.get(`https://api.jikan.moe/v4/characters?q=${searchString}&limit=12`)
+    .then((results) => {
+
+      let res = results.data
+      res.data.map((x, i) => {
                 x = {
                   type: "bubble",
                   size: "micro",
@@ -31,23 +31,10 @@ module.exports = {
                     contents: [
                       {
                         type: "text",
-                        text: res.data[i].title || "Can't fetch title",
+                        text: res.data[i].name || "Can't fetch name",
+                        wrap: true,
                         weight: "bold",
                         size: "xxs",
-                      },
-                      {
-                        type: "box",
-                        layout: "baseline",
-                        contents: [
-                          {
-                            type: "text",
-                            text: res.data[i].type,
-                            size: "xxs",
-                            color: "#8c8c8c",
-                            margin: "sm",
-                            flex: 0,
-                          },
-                        ],
                       },
                       {
                         type: "box",
@@ -76,7 +63,7 @@ module.exports = {
                         action: {
                           type: "message",
                           label: "Lihat detail",
-                          text: `!anime_id ${res.data[i].mal_id}`,
+                          text: `!character_id ${res.data[i].mal_id}`,
                         },
                         position: "relative",
                         height: "sm",
@@ -89,24 +76,26 @@ module.exports = {
                         action: {
                           type: "uri",
                           label: "MyAnimeList",
-                          uri: `https://myanimelist.net/anime/${res.data[i].id}`,
+                          uri: `https://myanimelist.net/character/${res.data[i].id}`,
                         },
                       },
                     ],
                   },
                 };
-content.push(x);
-        })
+    content.push(x)
+      })
     message.reply({
       type: "flex",
-      altText: "Anime Search",
+      altText: "Chara Search",
       contents: {
         type: "carousel",
         contents: content,
       },
     });
     })
-
-      
+    .catch((e) => {
+      console.log(e)
+      message.reply("Telah terjadi error")
+    })
   },
 };

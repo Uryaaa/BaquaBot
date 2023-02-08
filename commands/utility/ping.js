@@ -6,7 +6,7 @@ module.exports = {
   example: "{prefix}ping",
   async execute(client, message, args) {
     message.reply(
-      `Pong 🏓  server respond time - ${Date.now() - message.timestamp / 2}ms`
+      `Pong 🏓  server respond time - ${Date.now() - message.timestamp.toFixed(2)}ms`
     );
   },
 };

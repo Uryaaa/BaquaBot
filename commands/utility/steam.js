@@ -1,7 +1,5 @@
-const fetch = require("node-fetch");
-const html2md = require("html2markdown");
-const { decode } = require("he");
 const text = require("../../util/string");
+const axios = require('axios')
 module.exports = {
   name: "steam",
   description: "Mencari info game di steam",
@@ -10,91 +8,103 @@ module.exports = {
   example: "{prefix}steam [Apex legends]",
   async execute(client, message, args) {
     const query = args.join(" ") || "Doki Doki Literature Club";
+    let content = []
 
-    const res = await fetch(
-      `https://store.steampowered.com/api/storesearch/?cc=us&l=en&term=${encodeURI(
-        query
-      )}`
-    )
-      .then((res) => res.json())
-      .catch(() => null);
-
-    if (!res || !res.total) {
-      return message.reply(`\\❌ Tidak dapat menemukan ${query} di steam`);
-    }
-
-    const body = await fetch(
-      `https://store.steampowered.com/api/appdetails/?cc=us&l=en&appids=${res.items[0].id}`
-    )
-      .then((res) => res.json())
-      .catch(() => null);
-
-    if (!body) {
-      return message.reply(`\\❌ Tidak dapat menemukan ${query} di steam`);
-    }
-
-    const data = body[res.items[0].id].data;
-    const platformrequirements = {
-      windows: "pc_requirements",
-      mac: "mac_requirements",
-      linux: "linux_requirements",
-    };
-    const current = (data.price_overview?.final || "Free").toLocaleString(
-      "en-US",
-      { style: "currency", currency: "USD" }
-    );
-    const original = (data.price_overview?.initial || "Free").toLocaleString(
-      "en-US",
-      { style: "currency", currency: "USD" }
-    );
-    const price = current === original ? current : `~${original}~~ ${current}`;
-    const platforms = Object.entries(data.platforms)
-      .filter(([platform, has]) => has)
-      .map(([platform]) => {
-        return {
-          text: `System Requirements : ${
-            decode(html2md(data[platformrequirements[platform]].minimum)).split(
-              "* **Additional Notes:"
-            )[0]
-          }`,
+    axios.get(`https://store.steampowered.com/api/storesearch/?cc=id&term=${query}`)
+    .then((res) => {
+      let data = res.data.items
+      data.map((x, i) => {
+        x = {
+          type: "bubble",
+          size: "micro",
+          hero: {
+            type: "image",
+            url: data[i].tiny_image,
+            size: "full",
+            aspectMode: "cover",
+            aspectRatio: "20:13",
+          },
+          body: {
+            type: "box",
+            layout: "vertical",
+            contents: [
+              {
+                type: "text",
+                text: data[i].name || "Can't fetch name",
+                wrap: true,
+                weight: "bold",
+                size: "xxs",
+              },
+              {
+                type: "box",
+                layout: "baseline",
+                contents: [
+                  {
+                    type: "text",
+                    text: data[i].price ? `IDR ${text.commatize(Math.round(data[i].price.final)/100)}` : "FREE",
+                    size: "xxs",
+                    color: "#8c8c8c",
+                    margin: "sm",
+                    flex: 0,
+                  },
+                ],
+              },
+              {
+                type: "box",
+                layout: "baseline",
+                contents: [
+                  {
+                    type: "text",
+                    text: "Hasil berdasarkan page 1 ",
+                    margin: "sm",
+                    size: "xxs",
+                    color: "#f54263",
+                    style: "italic",
+                  },
+                ],
+              },
+            ],
+            spacing: "sm",
+            paddingAll: "13px",
+          },
+          footer: {
+            type: "box",
+            layout: "vertical",
+            contents: [
+              {
+                type: "button",
+                action: {
+                  type: "message",
+                  label: "Lihat detail",
+                  text: `!steam_appId ${data[i].id}`,
+                },
+                position: "relative",
+                height: "sm",
+                style: "primary",
+                adjustMode: "shrink-to-fit",
+                gravity: "center",
+              },
+              {
+                type: "button",
+                action: {
+                  type: "uri",
+                  label: "Steam",
+                  uri: `https://store.steampowered.com/app/${data[i].id}`,
+                },
+              },
+            ],
+          },
         };
+        content.push(x)
+      })
+      message.reply({
+        type: "flex",
+        altText: "Steam Search",
+        contents: {
+          type: "carousel",
+          contents: content,
+        },
       });
-
-    message.reply([
-      {
-        type: "image",
-        originalContentUrl: res.items[0].tiny_image,
-        previewImageUrl: res.items[0].tiny_image,
-      },
-      {
-        type: "text",
-        text: `Title : ${data.name}
-
-Price : ${price}
-
-Metascore : ${data.metacritic ? data.metacritic.score : "N/A"}
-
-Release date : ${data.release_date ? data.release_date.date : "N/A"}
-
-Developers : ${data.developers.map((m) => `${m}`).join(", ")}
-
-Categories : ${data.categories.map((m) => `${m.description}`).join(", ")}
-
-Genres : ${data.genres.map((m) => `${m.description}`).join(", ")}
-
-${text.truncate(
-  decode(data.detailed_description.replace(/(<([^>]+)>)/gi, " ")),
-  980
-)}
-
-Supported Languages : ${text.truncate(html2md(data.supported_languages), 997)}
-
-Link : https://store.steampowered.com/app/${data.steam_appid}`,
-      },
-      {
-        type: "text",
-        text: platforms[0].text,
-      },
-    ]);
+    })
   },
 };

@@ -116,6 +116,18 @@ function RandomFileName(length) {
   return result;
 }
 
+function removeTags(str) {
+  if ((str===null) || (str===''))
+      return false;
+  else
+      str = str.toString();
+        
+  // Regular expression to identify HTML tags in
+  // the input string. Replacing the identified
+  // HTML tag with a null string.
+  return str.replace( /(<([^>]+)>)/ig, '');
+}
+
 module.exports = {
   textTruncate,
   truncate,
@@ -126,4 +138,5 @@ module.exports = {
   joinArrayAndLimit,
   clean,
   RandomFileName,
+  removeTags
 };

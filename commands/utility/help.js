@@ -86,12 +86,12 @@ module.exports = {
                     contents: [
                       {
                         type: "text",
-                        text: "- Kategori command",
+                        text: "- Command button di",
                         size: "sm",
                       },
                       {
                         type: "text",
-                        text: '"Deprecated" ',
+                        text: ' "Hidden" ',
                         size: "sm",
                         weight: "bold",
                         wrap: true,
@@ -102,7 +102,7 @@ module.exports = {
                   },
                   {
                     type: "text",
-                    text: "Menandakan command tidak mendapat update improvisasi lagi",
+                    text: "dari help menu untuk menandakan command tersebut tidak dipake secara manual namun dengan klik button template",
                     size: "sm",
                     wrap: true,
                   },

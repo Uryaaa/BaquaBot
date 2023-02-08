@@ -24,7 +24,7 @@ module.exports = {
       responseType: "arraybuffer",
       headers: {
         ...formData.getHeaders(),
-        "X-Api-Key": process.env.removebg_api,
+        "X-Api-Key": process.env.removebgAPI,
       },
       encoding: null,
     })
@@ -34,15 +34,16 @@ module.exports = {
         let filename = string.RandomFileName(5);
         fs.writeFileSync(`./public/${filename}.png`, response.data);
         message.reply({
-          type:"image",
-          originalContentUrl: `https://baquabot.herokuapp.com/img/${filename}.png`,
-          previewImageUrl: `https://baquabot.herokuapp.com/img/${filename}.png`,
+          type: "image",
+          originalContentUrl: `${process.env.baseurl}/img/${filename}.png`,
+          previewImageUrl: `${process.env.baseurl}/img/${filename}.png`,
         });
-      console.log(`https://baquabot.herokuapp.com/img/${filename}.png`)
+        console.log(`${baseurl}/img/${filename}.png`);
       })
 
       .catch((error) => {
-        return message.reply("Request failed:", error);
+        console.log(error);
+        return message.reply(error);
       });
   },
 };

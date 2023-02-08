@@ -1,7 +1,7 @@
 module.exports = {
-  name: "ask",
+  name: "apakah",
   description: "Ask me a question",
-  aliases: ["apakah", "nanya"],
+  aliases: ["nanya"],
   category: "Fun",
   example: "{prefix}apakah [text]",
   execute(client, message, args) {

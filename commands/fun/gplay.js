@@ -1,5 +1,5 @@
-var gplay = require("google-play-scraper");
-
+const gplay = require("google-play-scraper");
+const {compactNum} = require("../../util/string")
 module.exports = {
   name: "playstore",
   description: "Shows google play app first result",
@@ -7,15 +7,9 @@ module.exports = {
   category: "Utility",
   example: "{prefix}gplay [query]",
   async execute(client, message, args) {
-    gplay.search({ term: args.join(" "), num: 12 }).then((res) => {
+    gplay.search({ term: args.join(" "), num: 1 }).then((res) => {
       gplay.app({ appId: res[0].appId }).then((app) => {
-        const formattedNum = (n) => {
-          if (n < 1e3) return n;
-          if (n >= 1e3 && n < 1e6) return +(n / 1e3).toFixed(1) + "K";
-          if (n >= 1e6 && n < 1e9) return +(n / 1e6).toFixed(1) + "M";
-          if (n >= 1e9 && n < 1e12) return +(n / 1e9).toFixed(1) + "T";
-          if (n >= 1e12) return +(n / 1e12).toFixed(1) + "B";
-        };
+
         message.reply({
           type: "flex",
           altText: "googleplay result",
@@ -99,7 +93,7 @@ module.exports = {
                             },
                             {
                               type: "text",
-                              text: formattedNum(app.reviews),
+                              text: compactNum(app.reviews),
                               align: "center",
                             },
                           ],
@@ -120,7 +114,7 @@ module.exports = {
                             },
                             {
                               type: "text",
-                              text: formattedNum(app.minInstalls),
+                              text: compactNum(app.minInstalls),
                               align: "center",
                             },
                           ],

@@ -37,16 +37,7 @@ module.exports = {
           )
         );
 
-        //Duration get
-        var hrs = ~~(info.videoDetails.lengthSeconds / 3600);
-        var mins = ~~((info.videoDetails.lengthSeconds % 3600) / 60);
-        var secs = ~~info.videoDetails.lengthSeconds % 60;
-        var ret = "";
-        if (hrs > 0) {
-          ret += (hrs < 10 ? "0" : "") + hrs + ":" + (mins < 10 ? "0" : "");
-        }
-        ret += (mins < 10 ? "0" : "") + mins + ":" + (secs < 10 ? "0" : "");
-        ret += "" + secs;
+        
 
         message.reply([
           {
@@ -56,7 +47,7 @@ module.exports = {
           },
           {
             type: "text",
-            text: `🎧 Now playing ${info.videoDetails.title}\n[00:00/${ret}]
+            text: `🎧 Now playing ${info.videoDetails.title}
 
 Download langsung video nya menggunakan LINE FOR WINDOWS `,
           },

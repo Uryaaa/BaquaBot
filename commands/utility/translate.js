@@ -6,21 +6,22 @@ module.exports = {
     category: 'Utility',
     example: '{prefix}translate [language] [text]',
   async  execute(client, message, args){
-    let language = args[0];
-    let text = args.splice(1).join(" ")
-      if(!language) return message.reply({
+
+    let [text1, text0] = args.join(" ").split("|")
+    if(!text1) return message.reply({
+      type:'text',
+      text: 'Argumen input tidak terdeteksi'
+    })
+
+      if(!text0) return message.reply({
         type:'text',
         text: 'Bahasa tidak valid'
       })
-      if(!text) return message.reply({
-        type:'text',
-        text: 'Argumen input tidak terdeteksi'
-      })
-       const result = await translate(text, {to: language})
+       const result = await translate(text1, {to: text0})
 
           message.reply({
             type:"text",
-            text:`Input : ${text}\n\nOutput : ${result.text}\n\nFull language check: nanti`
+            text:`Input : ${text1}\n\nOutput : ${result.text}\n\nCek kode bahasa yang bisa dipake : https://github.com/shikar/NODE_GOOGLE_TRANSLATE/blob/master/languages.js`
           })
     }
 }

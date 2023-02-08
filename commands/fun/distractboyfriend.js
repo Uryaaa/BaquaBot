@@ -11,7 +11,7 @@ module.exports = {
     let [text0, text1, text2] = args.join(" ").split("|");
     if (!text1 && !text2) return message.channel.send("wrong format");
     params.append("template_id", 112126428);
-    params.append("username", process.env.flipUser);
+    params.append("username", process.env.flipName);
     params.append("password", process.env.flipPass);
     params.append("boxes[0][text]", text0);
     params.append("boxes[1][text]", text1);

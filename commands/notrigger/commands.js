@@ -1,5 +1,3 @@
-
-
 module.exports = (client, message) => {
   client.on("message", (message) => {
     if (message.message.type !== "text" || message.type !== "message") return;
@@ -28,13 +26,12 @@ module.exports = (client, message) => {
           },
           {
             type: "audio",
-            originalContentUrl:
-              "https://baquabot.herokuapp.com/img/audio/16442401673394.mp3",
+            originalContentUrl: `${process.env.baseurl}/img/audio/16442401673394.mp3`,
             duration: 13000,
           },
         ]);
       }
-      if(commands === "rushipeek") {
+      if (commands === "rushipeek") {
         message.reply({
           type: "image",
           originalContentUrl:
@@ -54,12 +51,20 @@ module.exports = (client, message) => {
           },
           {
             type: "audio",
-            originalContentUrl:
-              "https://baquabot.herokuapp.com/img/audio/16461888530455.mp3",
-            duration: 4000
+            originalContentUrl: `${process.env.baseurl}/img/audio/16461888530455.mp3`,
+            duration: 4000,
           },
         ]);
-      }      
+      }
+      if (commands === "suicard") {
+        message.reply({
+          type: "image",
+          originalContentUrl:
+            "https://media.tenor.com/GjdvGDWvqT0AAAAC/suisei-credit-card.gif",
+          previewImageUrl:
+            "https://media.tenor.com/GjdvGDWvqT0AAAAC/suisei-credit-card.gif",
+        });
+      }
     }
   });
 };

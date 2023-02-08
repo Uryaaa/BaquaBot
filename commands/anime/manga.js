@@ -6,48 +6,104 @@ module.exports = {
   category: "Anime",
   example: "{prefix}manga [query]",
   async execute(client, message, args) {
-    let searchString = args.join("_");
+    let searchString = args.join(" ");
     if (searchString.length === 0) return message.reply("Masukkan query!");
-    axios
-      .get("https://api.jikan.moe/v3/search/manga?q=" + searchString)
-      .then((res) => {
-        let b = res.data.results[0].mal_id;
-        axios.get("https://api.jikan.moe/v3/manga/" + b).then((a) => {
-          message.reply([
-            {
-              type: "image",
-              originalContentUrl: a.data.image_url,
-              previewImageUrl: a.data.image_url,
-            },
-            {
-              type: "text",
-              text: `Title : ${a.data.title}
-               
-Synopsis : ${a.data.synopsis}
-
-Type : ${a.data.type}
-
-Volumes : ${a.data.volumes}
-
-Chapters : ${a.data.chapters}
-
-Status : ${a.data.status}
-
-Published : ${a.data.published.string}
-
-Genres : ${a.data.genres.map((i) => i.name).join(", ")}
-
-Authors : ${a.data.authors.map((a) => a.name).join(" | ")}
-
-Serializations : ${a.data.serializations.map((s) => s.name).join(", ")}
-
-Score : ${a.data.score}
-
-============
-See more : ${a.data.url}`,
-            },
-          ]);
-        });
-      });
+    let content = []
+    axios.get(`https://api.jikan.moe/v4/manga?q=${searchString}&limit=12`)
+    .then((res) => {
+      res = res.data;
+      res.data.map((x, i) => {
+                x = {
+                  type: "bubble",
+                  size: "micro",
+                  hero: {
+                    type: "image",
+                    url: res.data[i].images.jpg.image_url,
+                    size: "full",
+                    aspectMode: "cover",
+                    aspectRatio: "2:3",
+                  },
+                  body: {
+                    type: "box",
+                    layout: "vertical",
+                    contents: [
+                      {
+                        type: "text",
+                        text: res.data[i].title || "Can't fetch title",
+                        wrap: true,
+                        weight: "bold",
+                        size: "xxs",
+                      },
+                      {
+                        type: "box",
+                        layout: "baseline",
+                        contents: [
+                          {
+                            type: "text",
+                            text: res.data[i].type,
+                            size: "xxs",
+                            color: "#8c8c8c",
+                            margin: "sm",
+                            flex: 0,
+                          },
+                        ],
+                      },
+                      {
+                        type: "box",
+                        layout: "baseline",
+                        contents: [
+                          {
+                            type: "text",
+                            text: "Hasil berdasarkan page 1 ",
+                            margin: "sm",
+                            size: "xxs",
+                            color: "#f54263",
+                            style: "italic",
+                          },
+                        ],
+                      },
+                    ],
+                    spacing: "sm",
+                    paddingAll: "13px",
+                  },
+                  footer: {
+                    type: "box",
+                    layout: "vertical",
+                    contents: [
+                      {
+                        type: "button",
+                        action: {
+                          type: "message",
+                          label: "Lihat detail",
+                          text: `!manga_id ${res.data[i].mal_id}`,
+                        },
+                        position: "relative",
+                        height: "sm",
+                        style: "primary",
+                        adjustMode: "shrink-to-fit",
+                        gravity: "center",
+                      },
+                      {
+                        type: "button",
+                        action: {
+                          type: "uri",
+                          label: "MyAnimeList",
+                          uri: `https://myanimelist.net/manga/${res.data[i].id}`,
+                        },
+                      },
+                    ],
+                  },
+                };
+      content.push(x)
+      })
+    message.reply({
+      type: "flex",
+      altText: "Manga Search",
+      contents: {
+        type: "carousel",
+        contents: content,
+      },
+    });
+    })
   },
 };
