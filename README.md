@@ -29,9 +29,9 @@ Baqua has a lot fun and useful command and keep increasing!
 ## Invite BaquaBot ➕
 
 > You must invite this bot to your **LINE GROUP** in order to use it
-> <a href="https://line.me/ti/p/~@tmu7203x">
-
-    <img src="https://media.discordapp.net/attachments/861574871754342410/866663803100725248/download.png" alt="BaquaBot" />
+>
+<a href="https://line.me/ti/p/~@tmu7203x">
+<img src="https://media.discordapp.net/attachments/861574871754342410/866663803100725248/download.png" alt="BaquaBot" />
 
 </a>
 
@@ -75,9 +75,9 @@ Public/video        // !ytmp4 command file storage
 ## Bot Support 🤖
 
 > Don't worry i got you, feel free to add me
-> <a href="https://line.me/ti/p/~Aldi0905">
-
-    <img src="https://media.discordapp.net/attachments/861574871754342410/866674650222428180/download_1.png" alt="Tama-chan"  />
+> 
+<a href="https://line.me/ti/p/~Aldi0905">
+<img src="https://media.discordapp.net/attachments/861574871754342410/866674650222428180/download_1.png" alt="Tama-chan"  />
 
 </a>
 
